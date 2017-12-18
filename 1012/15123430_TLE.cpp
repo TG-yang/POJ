@@ -1,0 +1,26 @@
+#include<iostream>  
+using namespace std;
+
+int main()
+{
+	int k;
+	while (cin >> k)
+	{
+		if (!k)
+			break;
+		int n = 2 * k;
+		int ans[30] = { 0 };
+		int m = k;
+		for (int i=1; i <= k; ++i)
+		{
+			ans[i] = (ans[i - 1] + m - 1) % (n - i + 1);
+			if (ans[i] < k)
+			{
+				i = 0;
+				++m;
+			}
+		}
+		cout << m << endl;
+	}
+	return 0;
+}
